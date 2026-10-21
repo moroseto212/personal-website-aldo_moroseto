@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/ui/Section";
 import { services } from "@/data/services";
 
 export default function ServicesPreview() {
-  const preview = services.slice(0, 6);
+  const preview = services.slice(0, 2);
 
   return (
     <section className="border-y border-line bg-surface/30 py-16 md:py-28">

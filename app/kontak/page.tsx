@@ -8,7 +8,7 @@ import { contact, site, socials } from "@/data/site";
 export const metadata: Metadata = {
   title: "Kontak",
   description:
-    "Hubungi Aldo Moroseto untuk proyek website, web application, desain UI/UX, atau optimasi performa. Balasan dalam 1×24 jam.",
+    "Hubungi Aldo Moroseto untuk proyek company profile & landing page atau web application & dashboard. Balasan dalam 1×24 jam.",
 };
 
 const channels = [

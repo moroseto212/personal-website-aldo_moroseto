@@ -11,7 +11,7 @@ import { services } from "@/data/services";
 export const metadata: Metadata = {
   title: "Layanan",
   description:
-    "Jasa pembuatan website, web application, desain UI/UX, optimasi performa, integrasi CMS, dan maintenance — dikerjakan dari awal sampai peluncuran.",
+    "Jasa pembuatan website company profile & landing page, serta web application & dashboard — dikerjakan dari awal sampai peluncuran.",
 };
 
 export default function ServicesPage() {
@@ -20,7 +20,7 @@ export default function ServicesPage() {
       <PageHero
         label="Layanan"
         title="Dari brief sampai website meluncur"
-        description="Enam layanan yang bisa berdiri sendiri atau digabung dalam satu proyek. Semua dikerjakan langsung oleh saya — tanpa lempar ke tim tak dikenal."
+        description="Dua layanan yang bisa berdiri sendiri atau digabung dalam satu proyek. Semua dikerjakan langsung oleh saya — tanpa lempar ke tim tak dikenal."
       >
         <div className="mt-8 flex flex-wrap gap-3">
           <Button href="/kontak">Minta estimasi</Button>

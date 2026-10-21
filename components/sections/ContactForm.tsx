@@ -8,12 +8,8 @@ import { cn } from "@/lib/cn";
 type Errors = Partial<Record<"name" | "email" | "message", string>>;
 
 const serviceOptions = [
-  "Company Profile / Landing Page",
-  "Web Application / Dashboard",
-  "UI/UX Design & Design System",
-  "Optimasi Performa & SEO",
-  "Integrasi API & Headless CMS",
-  "Maintenance & Support",
+  "Company Profile & Landing Page",
+  "Web Application & Dashboard",
   "Lainnya",
 ];
 
