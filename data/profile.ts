@@ -48,36 +48,14 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    period: "2024 — Sekarang",
-    role: "Senior Web Developer",
-    company: "Nusantara Digital",
-    location: "Remote",
-    highlights: [
-      "Memimpin redesign website utama yang menaikkan konversi signup sebesar 34%",
-      "Membangun design system berbasis komponen yang dipakai 3 produk internal",
-      "Menurunkan waktu muat halaman dari 3,8s menjadi 1,2s lewat optimasi bundle",
-    ],
-  },
-  {
-    period: "2023 — 2024",
-    role: "Web Developer",
-    company: "Kreasi Studio",
-    location: "Jakarta",
-    highlights: [
-      "Mengerjakan 20+ proyek website klien lokal dan regional",
-      "Memperkenalkan alur review aksesibilitas di setiap siklus proyek",
-      "Kolaborasi erat dengan tim desain untuk menerjemahkan Figma ke kode produksi",
-    ],
-  },
-  {
-    period: "2022 — 2023",
-    role: "Web Developer (Freelance)",
+    period: "2023 — Sekarang",
+    role: "Website Developer (Freelance)",
     company: "Mandiri",
     location: "Bekasi",
     highlights: [
-      "Menangani website company profile, toko online, dan portal UMKM",
-      "Membangun relasi jangka panjang dengan 12 klien berulang",
-      "Belajar mengelola proyek, briefing klien, dan pengiriman tepat waktu",
+      "Menangani website company profile, landing page, toko online, dan portal UMKM",
+      "Membangun relasi jangka panjang dengan klien berulang dan menangani proyek end-to-end: desain, kode, dan optimasi",
+      "Menjaga Core Web Vitals hijau dan pengalaman mobile yang rapi di setiap proyek",
     ],
   },
 ];

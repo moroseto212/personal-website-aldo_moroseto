@@ -114,7 +114,7 @@ export default function AboutPage() {
         <SectionHeading
           label="Perjalanan"
           title="Pengalaman kerja"
-          description="Lingkungan yang berbeda, standar yang selalu sama: kerapihan, kecepatan, dan komunikasi yang jelas."
+          description="Beberapa tahun mengerjakan website untuk klien dari berbagai industri — satu peran, satu standar: kerapihan, kecepatan, dan komunikasi yang jelas."
         />
 
         <ol className="relative space-y-8 border-l border-line pl-6 md:pl-10">
