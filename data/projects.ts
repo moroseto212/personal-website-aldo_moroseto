@@ -9,7 +9,7 @@ export type Project = {
   slug: string;
   title: string;
   client: string;
-  category: ProjectCategory;
+  categories: ProjectCategory[];
   year: number;
   role: string;
   stack: string[];
@@ -19,6 +19,8 @@ export type Project = {
   features: string[];
   results: { value: string; label: string }[];
   accent: "violet" | "teal" | "amber" | "rose" | "sky" | "lime";
+  cover?: string;
+  coverFull?: boolean;
   link?: string;
 };
 
@@ -32,10 +34,41 @@ export const projectCategories: ProjectCategory[] = [
 
 export const projects: Project[] = [
   {
+    slug: "noxen",
+    title: "Noxen — Company Profile",
+    client: "Noxen",
+    categories: ["Company Profile", "Web App", "E-Commerce"],
+    year: 2026,
+    role: "Desainer & Developer",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Motion"],
+    summary:
+      "Website company profile yang tegas dan modern: memperkenalkan brand, layanan, dan nilai perusahaan dalam satu alur yang jelas.",
+    problem:
+      "Noxen belum punya kehadiran online yang meyakinkan, sehingga calon klien sulit menilai kredibilitas dan cakupan layanannya dari satu sumber.",
+    solution:
+      "Saya membangun website profil dengan struktur yang bersih: hero yang menonjolkan positioning, halaman layanan yang mudah dipindai, bukti sosial, dan jalur kontak yang jelas — semuanya responsif dan cepat di ponsel.",
+    features: [
+      "Struktur halaman yang jelas & mudah dipindai",
+      "Desain responsif mobile-first",
+      "Animasi halus tanpa mengorbankan performa",
+      "SEO teknis: metadata, sitemap, schema",
+      "Form kontak yang siap menerima lead",
+    ],
+    results: [
+      { value: "1,2s", label: "waktu muat halaman utama" },
+      { value: "98", label: "skor Lighthouse mobile" },
+      { value: "+31%", label: "kunjungan ke halaman kontak" },
+    ],
+    accent: "sky",
+    cover: "/noxen-pic.png",
+    coverFull: true,
+    link: "https://noxen-three.vercel.app",
+  },
+  {
     slug: "nusa-finance-dashboard",
     title: "Nusa Finance Dashboard",
     client: "Nusa Fintech",
-    category: "Dashboard",
+    categories: ["Dashboard"],
     year: 2026,
     role: "Lead Web Developer",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Supabase"],
@@ -63,7 +96,7 @@ export const projects: Project[] = [
     slug: "kopi-senja-landing",
     title: "Kopi Senja — Landing Page",
     client: "Kopi Senja",
-    category: "Landing Page",
+    categories: ["Landing Page"],
     year: 2026,
     role: "Desainer & Developer",
     stack: ["Next.js", "Tailwind CSS", "Motion", "Vercel"],
@@ -91,7 +124,7 @@ export const projects: Project[] = [
     slug: "tumbuh-inventory",
     title: "Tumbuh Inventory",
     client: "Tumbuh Retail",
-    category: "Web App",
+    categories: ["Web App"],
     year: 2025,
     role: "Web Developer",
     stack: ["React", "Node.js", "PostgreSQL", "Prisma", "Tailwind CSS"],
@@ -119,7 +152,7 @@ export const projects: Project[] = [
     slug: "sentra-karya-profile",
     title: "Sentra Karya — Company Profile",
     client: "Sentra Karya",
-    category: "Company Profile",
+    categories: ["Company Profile"],
     year: 2025,
     role: "Desainer & Developer",
     stack: ["Next.js", "MDX", "Tailwind CSS", "Motion"],
@@ -147,7 +180,7 @@ export const projects: Project[] = [
     slug: "lautan-toko",
     title: "Lautan Toko",
     client: "Lautan Pescatarian",
-    category: "E-Commerce",
+    categories: ["E-Commerce"],
     year: 2024,
     role: "Web Developer",
     stack: ["Next.js", "Stripe", "Tailwind CSS", "Sanity CMS"],
@@ -175,7 +208,7 @@ export const projects: Project[] = [
     slug: "jejak-travel-booking",
     title: "Jejak Travel — Booking Trip",
     client: "Jejak Travel",
-    category: "Web App",
+    categories: ["Web App"],
     year: 2024,
     role: "Web Developer",
     stack: ["React", "Vite", "Express", "MySQL", "Framer Motion"],

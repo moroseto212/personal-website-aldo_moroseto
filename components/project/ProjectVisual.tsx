@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 import type { Project } from "@/data/projects";
 
@@ -22,41 +23,74 @@ const dots: Record<Project["accent"], string> = {
 export default function ProjectVisual({
   project,
   className,
+  fullHeight = false,
 }: {
   project: Project;
   className?: string;
+  fullHeight?: boolean;
 }) {
+  const grows = fullHeight && Boolean(project.cover);
+
   return (
     <div
       className={cn(
-        "relative aspect-[16/10] overflow-hidden rounded-2xl border border-line",
+        "relative overflow-hidden rounded-2xl border border-line",
+        grows ? "" : "aspect-[16/10]",
         className,
       )}
     >
-      <div className={cn("absolute inset-0 bg-gradient-to-br", accents[project.accent])} />
-      <div className="bg-noise absolute inset-0 opacity-[0.15] mix-blend-overlay" />
-      <div className="bg-grid absolute inset-0 opacity-40" />
+      {project.cover ? (
+        grows ? (
+          <Image
+            src={project.cover}
+            alt={`Tampilan ${project.title}`}
+            width={1920}
+            height={6637}
+            sizes="(min-width: 1536px) 1536px, (min-width: 1280px) 1216px, (min-width: 1024px) 100vw, 100vw"
+            quality={95}
+            className="block h-auto w-full"
+            priority
+          />
+        ) : (
+          <Image
+            src={project.cover}
+            alt={`Tampilan ${project.title}`}
+            fill
+            sizes="(min-width: 1024px) 34vw, (min-width: 768px) 50vw, 100vw"
+            quality={95}
+            className="object-cover object-top"
+          />
+        )
+      ) : (
+        <>
+          {/* decorative layers — ONLY for the mock visual, never on top of a real
+              screenshot (they tint/noise/grid the image if left on) */}
+          <div className={cn("absolute inset-0 bg-gradient-to-br", accents[project.accent])} />
+          <div className="bg-noise absolute inset-0 opacity-[0.15] mix-blend-overlay" />
+          <div className="bg-grid absolute inset-0 opacity-40" />
 
-      <div className="absolute inset-x-6 top-8 rounded-xl border border-white/15 bg-black/35 p-3 shadow-2xl shadow-black/40 backdrop-blur-sm transition-transform duration-500 ease-out md:inset-x-10 md:top-12 md:p-4">
-        <div className="flex items-center gap-1.5">
-          <span className={cn("h-2 w-2 rounded-full", dots[project.accent])} />
-          <span className="h-2 w-2 rounded-full bg-white/25" />
-          <span className="h-2 w-2 rounded-full bg-white/25" />
-          <span className="ml-3 h-2 flex-1 rounded-full bg-white/10" />
-        </div>
-        <div className="mt-4 space-y-2.5">
-          <div className="h-3 w-2/3 rounded-full bg-white/30" />
-          <div className="h-2 w-full rounded-full bg-white/15" />
-          <div className="h-2 w-5/6 rounded-full bg-white/15" />
-          <div className="flex gap-2 pt-2">
-            <div className="h-5 w-16 rounded-full bg-white/25" />
-            <div className="h-5 w-12 rounded-full bg-white/10" />
+          <div className="absolute inset-x-6 top-8 rounded-xl border border-white/15 bg-black/35 p-3 shadow-2xl shadow-black/40 backdrop-blur-sm transition-transform duration-500 ease-out md:inset-x-10 md:top-12 md:p-4">
+            <div className="flex items-center gap-1.5">
+              <span className={cn("h-2 w-2 rounded-full", dots[project.accent])} />
+              <span className="h-2 w-2 rounded-full bg-white/25" />
+              <span className="h-2 w-2 rounded-full bg-white/25" />
+              <span className="ml-3 h-2 flex-1 rounded-full bg-white/10" />
+            </div>
+            <div className="mt-4 space-y-2.5">
+              <div className="h-3 w-2/3 rounded-full bg-white/30" />
+              <div className="h-2 w-full rounded-full bg-white/15" />
+              <div className="h-2 w-5/6 rounded-full bg-white/15" />
+              <div className="flex gap-2 pt-2">
+                <div className="h-5 w-16 rounded-full bg-white/25" />
+                <div className="h-5 w-12 rounded-full bg-white/10" />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
 
       <div className="absolute bottom-4 left-4 rounded-lg border border-white/10 bg-black/40 px-2.5 py-1 text-[0.65rem] font-medium tracking-wide text-white/70 uppercase backdrop-blur-sm md:bottom-6 md:left-6 md:text-xs">
-        {project.category}
+        {project.categories[0]}
       </div>
     </div>
   );

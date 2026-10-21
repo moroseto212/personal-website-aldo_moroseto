@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import ProjectVisual from "@/components/project/ProjectVisual";
 import Reveal from "@/components/motion/Reveal";
 import CtaSection from "@/components/sections/CtaSection";
@@ -92,7 +92,7 @@ async function ProjectHeading({ params }: { params: ProjectParams }) {
       <Reveal delay={0.1}>
         <div className="mt-7 flex flex-wrap items-center gap-2">
           <span className="rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted">
-            {project.category}
+            {project.categories[0]}
           </span>
           <span className="rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted">
             {project.year}
@@ -124,7 +124,11 @@ async function ProjectBody({ params }: { params: ProjectParams }) {
   return (
     <div className="container-page py-12 md:py-16">
       <Reveal>
-        <ProjectVisual project={project} className="aspect-[16/9]" />
+        <ProjectVisual
+          project={project}
+          fullHeight={project.coverFull}
+          className={project.coverFull ? undefined : "aspect-[16/9]"}
+        />
       </Reveal>
 
       <Reveal delay={0.1}>
@@ -143,7 +147,7 @@ async function ProjectBody({ params }: { params: ProjectParams }) {
           </div>
           <div className="bg-surface p-5">
             <dt className="text-xs text-faint">Kategori</dt>
-            <dd className="mt-1.5 text-sm font-semibold">{project.category}</dd>
+            <dd className="mt-1.5 font-semibold">{project.categories.join(" · ")}</dd>
           </div>
         </dl>
       </Reveal>
@@ -222,7 +226,6 @@ async function ProjectBody({ params }: { params: ProjectParams }) {
                 <div className="mt-5">
                   <Button href={project.link} variant="secondary" size="sm" external>
                     Kunjungi website
-                    <ExternalLink size={13} aria-hidden="true" />
                   </Button>
                 </div>
               )}

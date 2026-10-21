@@ -11,7 +11,9 @@ const filters: Array<ProjectCategory | "Semua"> = ["Semua", ...projectCategories
 export default function ProjectFilter() {
   const [active, setActive] = useState<ProjectCategory | "Semua">("Semua");
   const filtered =
-    active === "Semua" ? projects : projects.filter((project) => project.category === active);
+    active === "Semua"
+      ? projects
+      : projects.filter((project) => project.categories.includes(active));
 
   return (
     <>
@@ -34,7 +36,7 @@ export default function ProjectFilter() {
             <span className="ml-1.5 text-xs opacity-60">
               {filter === "Semua"
                 ? projects.length
-                : projects.filter((project) => project.category === filter).length}
+                : projects.filter((project) => project.categories.includes(filter)).length}
             </span>
           </button>
         ))}

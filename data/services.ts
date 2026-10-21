@@ -36,7 +36,7 @@ export const services: Service[] = [
       { step: "04", title: "QA & peluncuran", description: "Uji lintas device, optimasi, lalu online dan serah terima." },
     ],
     duration: "2 — 4 minggu",
-    priceFrom: "Rp 6 juta",
+    priceFrom: "Rp 1 juta",
   },
   {
     slug: "web-application",
@@ -60,7 +60,7 @@ export const services: Service[] = [
       { step: "04", title: "Rilis", description: "Deploy, monitoring, dan pendampingan pasca-peluncuran." },
     ],
     duration: "4 — 10 minggu",
-    priceFrom: "Rp 18 juta",
+    priceFrom: "Rp 3,5 juta",
   },
 ];
 
