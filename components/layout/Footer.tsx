@@ -7,8 +7,8 @@ export default async function Footer() {
   const year = await getCurrentYear();
 
   return (
-    <footer className="sticky bottom-[calc(3.5rem+env(safe-area-inset-bottom))] z-0 border-t border-line bg-surface md:bottom-0">
-      <div className="container-page py-14 pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-14">
+    <footer className="z-0 border-t border-line bg-surface md:sticky md:bottom-0">
+      <div className="container-page py-14">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <p className="text-xl font-semibold tracking-tight">{site.name}</p>

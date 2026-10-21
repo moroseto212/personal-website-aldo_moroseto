@@ -77,8 +77,9 @@
 
 /* ————— Mobile-only refinements (≤767px). Desktop (≥768px) untouched. ————— */
 @media (max-width: 767px) {
-  /* bottom tab bar (h-14 = 3.5rem) + keep last content clear of the home
-     indicator / Android gesture bar, so the sticky footer isn't trapped behind it.
+  /* bottom tab bar (h-14 = 3.5rem) + keep the last footer content clear of the
+     home indicator / Android gesture bar (body padding is the ONLY clearance
+     now — the mobile footer is normal flow, no sticky offset).
      overscroll-behavior: none kills the browser rubber-band / pull-to-refresh
      so the page feels like a native app. */
   body {
