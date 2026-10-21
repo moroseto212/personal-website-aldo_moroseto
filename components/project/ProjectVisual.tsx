@@ -41,25 +41,60 @@ export default function ProjectVisual({
     >
       {project.cover ? (
         grows ? (
-          <Image
-            src={project.cover}
-            alt={`Tampilan ${project.title}`}
-            width={1920}
-            height={6637}
-            sizes="(min-width: 1536px) 1536px, (min-width: 1280px) 1216px, (min-width: 1024px) 100vw, 100vw"
-            quality={95}
-            className="block h-auto w-full"
-            priority
-          />
+          <>
+            <Image
+              src={project.cover}
+              alt={`Tampilan ${project.title}`}
+              width={1920}
+              height={6637}
+              sizes="(min-width: 1280px) 1216px, 100vw"
+              quality={95}
+              className="block h-auto w-full"
+              priority
+            />
+
+            {project.coverAlt && (
+              <figure className="mt-6">
+                <Image
+                  src={project.coverAlt}
+                  alt={`Halaman admin ${project.title}`}
+                  width={1920}
+                  height={948}
+                  sizes="(min-width: 1280px) 1216px, 100vw"
+                  quality={95}
+                  className="block h-auto w-full rounded-xl border border-line"
+                />
+                <figcaption className="mt-3 text-center text-xs text-faint">
+                  Halaman admin — kelola konten &amp; data tanpa menyentuh kode
+                </figcaption>
+              </figure>
+            )}
+          </>
         ) : (
-          <Image
-            src={project.cover}
-            alt={`Tampilan ${project.title}`}
-            fill
-            sizes="(min-width: 1024px) 34vw, (min-width: 768px) 50vw, 100vw"
-            quality={95}
-            className="object-cover object-top"
-          />
+          <>
+            <Image
+              src={project.cover}
+              alt={`Tampilan ${project.title}`}
+              fill
+              sizes="(min-width: 1024px) 34vw, (min-width: 768px) 50vw, 100vw"
+              quality={95}
+              className={cn(
+                "object-cover object-top",
+                project.coverAlt &&
+                  "transition-opacity duration-500 group-hover:opacity-0 group-focus-visible:opacity-0",
+              )}
+            />
+            {project.coverAlt && (
+              <Image
+                src={project.coverAlt}
+                alt={`Halaman admin ${project.title}`}
+                fill
+                sizes="(min-width: 1024px) 34vw, (min-width: 768px) 50vw, 100vw"
+                quality={95}
+                className="object-cover object-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100"
+              />
+            )}
+          </>
         )
       ) : (
         <>

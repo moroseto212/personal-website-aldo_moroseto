@@ -230,6 +230,35 @@ async function ProjectBody({ params }: { params: ProjectParams }) {
                 </div>
               )}
             </div>
+
+            {project.admin && (
+              <div className="card p-6">
+                <p className="text-xs font-medium tracking-widest text-faint uppercase">
+                  Akses Admin
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  Ingin mengakses bagian admin? Tambahkan{" "}
+                  <code className="rounded-md border border-line bg-background/60 px-1.5 py-0.5 font-mono text-xs text-foreground">
+                    {project.admin.path}
+                  </code>{" "}
+                  pada bagian URL.
+                </p>
+                <dl className="mt-4 space-y-3">
+                  <div>
+                    <dt className="text-xs text-faint">Email</dt>
+                    <dd className="mt-1 font-mono text-sm text-foreground break-all">
+                      {project.admin.email}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs text-faint">Password</dt>
+                    <dd className="mt-1 font-mono text-sm text-foreground break-all">
+                      {project.admin.password}
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            )}
           </div>
         </Reveal>
       </div>

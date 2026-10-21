@@ -20,8 +20,12 @@ export type Project = {
   results: { value: string; label: string }[];
   accent: "violet" | "teal" | "amber" | "rose" | "sky" | "lime";
   cover?: string;
+  /** screenshot halaman admin — dipakai di kartu daftar/beranda (bergantian saat hover) */
+  coverAlt?: string;
   coverFull?: boolean;
   link?: string;
+  /** akses panel admin, ditampilkan sebagai catatan di halaman detail */
+  admin?: { path: string; email: string; password: string };
 };
 
 export const projectCategories: ProjectCategory[] = [
@@ -33,6 +37,42 @@ export const projectCategories: ProjectCategory[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    slug: "alat-berat",
+    title: "Alat Berat — Company Profile & Dashboard",
+    client: "Alat Berat",
+    categories: ["Company Profile", "E-Commerce", "Dashboard", "Web App"],
+    year: 2026,
+    role: "Desainer & Developer",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Motion", "Supabase"],
+    summary:
+      "Website profil perusahaan alat berat lengkap dengan katalog unit, halaman admin, dan dashboard pengelolaan data.",
+    problem:
+      "Perusahaan alat berat belum punya kanal digital resmi: calon pembeli sulit melihat daftar unit dan spesifikasinya, sementara tim internal masih mencatat data secara manual sehingga sulit diperbarui.",
+    solution:
+      "Saya membangun website profil dengan katalog unit yang rapi, halaman detail spesifikasi, serta panel admin untuk mengelola konten dan data. Tim internal bisa memperbarui daftar unit sendiri tanpa menyentuh kode, dan pengunjung mendapat informasi yang selalu terbaru.",
+    features: [
+      "Halaman profil, layanan, dan kontak perusahaan",
+      "Katalog unit alat berat dengan filter kategori",
+      "Halaman detail unit lengkap dengan spesifikasi",
+      "Panel admin untuk mengelola konten & data",
+      "Dashboard ringkasan data dengan visualisasi",
+    ],
+    results: [
+      { value: "100%", label: "konten dikelola mandiri via admin" },
+      { value: "1,4s", label: "waktu muat halaman katalog" },
+      { value: "96", label: "skor Lighthouse mobile" },
+    ],
+    accent: "amber",
+    cover: "/alat-berat-pic.png",
+    coverAlt: "/alat-berat-admin-pic.png",
+    coverFull: true,
+    admin: {
+      path: "/admin",
+      email: "admin123@gmail.com",
+      password: "admin123",
+    },
+  },
   {
     slug: "noxen",
     title: "Noxen — Company Profile",
