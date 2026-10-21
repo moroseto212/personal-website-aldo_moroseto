@@ -1,0 +1,44 @@
+---
+title: "Headless CMS: Ketika Tim Konten Perlu Kelola Website Sendiri"
+description: "Memisahkan konten dari kode memberi kebebasan pada tim marketing tanpa mengorbankan fleksibilitas developer."
+date: 2026-05-12
+category: "Teknologi"
+tags: [cms, headless, konten]
+---
+
+"Website sudah jadi, tapi untuk ganti banner harus lewat developer." Keluhan ini begitu umum. Headless CMS lahir dari masalah itu: memberi tim konten kendali penuh tanpa membuka akses ke kode.
+
+## Apa itu headless CMS
+
+CMS tradisional (WordPress misalnya) mengelola konten sekaligus merender halamannya. Headless CMS hanya mengelola konten — lalu menyajikannya lewat API. Front-end Anda (Next.js, Astro, atau apa pun) mengambil data itu dan menampilkan sesuai desainnya sendiri.
+
+Konsekuensinya jelas: tim konten bebas mengedit, developer bebas soal tampilan, dan keduanya tidak saling mengunci.
+
+## Kapan layak dipertimbangkan
+
+- **Tim marketing sering mempublikasikan konten.** Artikel, promo, dan halaman baru tanpa antrean developer.
+- **Website dipakai di beberapa kanal.** Konten yang sama tampil di website, aplikasi ponsel, dan microsite lain.
+- **Desain harus konsisten.** Karena tampilan seluruhnya dikodekan, tidak ada template plugin yang merusak gaya.
+
+<Callout type="info" title="Bukan untuk semua kasus">
+  Untuk website profil perusahaan yang statis, headless CMS bisa jadi berlebihan. File markdown sederhana sering sudah cukup dan jauh lebih murah dijalankan.
+</Callout>
+
+## Pilihan yang umum dipakai
+
+Sanity cocok untuk konten yang sangat terstruktur dengan real-time collaboration. Contentful nyaman untuk tim besar dengan alur persetujuan. Untuk kebutuhan ringan, Decap CMS atau bahkan MDX lokal seperti yang saya pakai di website ini bisa menyelesaikan pekerjaan.
+
+```js
+// Contoh: mengambil artikel dari Sanity lewat GROQ
+const query = `*[_type == "post" && publishedAt < now()] | order(publishedAt desc) {
+  title, slug, publishedAt, excerpt
+}`;
+```
+
+## Hal yang harus disiapkan sejak awal
+
+Pertama, **skema konten yang jelas** — tentukan tipe, field, dan hubungannya sebelum mulai mengisi. Kedua, **preview langsung** agar editor melihat hasil akhirnya. Ketiga, **dokumentasi singkat** untuk tim konten: apa yang boleh diedit, bagian mana yang dikunci.
+
+## Kesimpulan
+
+Headless CMS bukan soal mengikuti tren, tapi soal membagi tanggung jawab. Developer menjaga struktur dan performa, tim konten menjaga kesegaran informasi. Ketika keduanya tidak saling menghambat, website hidup lebih lama dan lebih relevan.

@@ -1,0 +1,47 @@
+---
+title: "Next.js atau Vite? Memilih Fondasi untuk Proyek Baru"
+description: "Dua tool populer dengan filosofi berbeda. Pilihan yang tepat tergantung pada jenis produk yang ingin Anda bangun."
+date: 2026-07-14
+category: "Teknologi"
+tags: [nextjs, vite, react, arsitektur]
+---
+
+Hampir setiap proyek React baru dimulai dengan pertanyaan yang sama: memakai Next.js atau Vite? Keduanya bagus, tapi melayani kebutuhan yang berbeda. Berikut cara saya memilih.
+
+## Karakter keduanya
+
+**Next.js** adalah framework lengkap: routing, rendering di server, optimasi gambar, dan penyatuan front-end dengan backend dalam satu proyek. Ia unggul ketika SEO, konten, dan data dinamis menjadi inti produk.
+
+**Vite** adalah build tool yang sangat cepat dengan opininya tipis. Proyek React murni berjalan di browser tanpa server render. Cocok ketika aplikasi Anda adalah dashboard internal, tool berat interaksi, atau prototype yang ingin segera berjalan.
+
+## Pertanyaan yang membantu menentukan pilihan
+
+### Apakah halaman perlu terindeks mesin pencari?
+
+Jika ya — website marketing, blog, toko online, portfolio — Next.js jelas menang. Server-side rendering menghasilkan HTML lengkap yang bisa dibaca crawler. Dengan SPA murni, Anda harus menambahkan kerja prerender terpisah.
+
+### Di mana logika bisnis hidup?
+
+Next.js memungkinkan menulis API routes di proyek yang sama. Vite mengasumsikan backend sudah tersedia terpisah. Jika backend sudah ada, Vite terasa lebih ringkas.
+
+### Seberapa besar kebutuhan optimasi bawaan?
+
+Next.js sudah menyediakan optimasi gambar, font, dan script bawaan. Vite memberi Anda kendali penuh, tapi semua keputusan ada di tangan Anda.
+
+```jsx
+// Next.js: halaman dengan data server, tanpa kode fetch di browser
+export default async function ProjectsPage() {
+  const projects = await getProjects();
+  return <ProjectGrid items={projects} />;
+}
+```
+
+<Callout type="tip" title="Aturan praktis saya">
+  Produk yang mengandalkan trafik organik dan konten → Next.js. Aplikasi internal, tool, atau PWA yang sudah punya backend → Vite.
+</Callout>
+
+## Keduanya bisa hidup berdampingan
+
+Bukan hal aneh memakai Vite untuk aplikasi internal dan Next.js untuk website publik di perusahaan yang sama. Yang penting bukan tool-nya, melainkan kesesuaiannya dengan masalah yang diselesaikan.
+
+Pilih yang paling dekat dengan kebutuhan nyata hari ini, bukan dengan kebutuhan hipotetis dua tahun lagi.
