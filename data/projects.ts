@@ -67,6 +67,7 @@ export const projects: Project[] = [
     cover: "/alat-berat-pic.png",
     coverAlt: "/alat-berat-admin-pic.png",
     coverFull: true,
+    link: "https://penyewaan-berat.vercel.app/",
     admin: {
       path: "/admin",
       email: "admin123@gmail.com",
