@@ -3,7 +3,8 @@ export type ProjectCategory =
   | "Landing Page"
   | "Company Profile"
   | "E-Commerce"
-  | "Dashboard";
+  | "Dashboard"
+  | "Social Media";
 
 export type Project = {
   slug: string;
@@ -23,6 +24,11 @@ export type Project = {
   /** screenshot halaman admin — dipakai di kartu daftar/beranda (bergantian saat hover) */
   coverAlt?: string;
   coverFull?: boolean;
+  /** dimensi asli cover & coverAlt (agar rasio benar di halaman detail) */
+  coverWidth?: number;
+  coverHeight?: number;
+  coverAltWidth?: number;
+  coverAltHeight?: number;
   link?: string;
   /** akses panel admin, ditampilkan sebagai catatan di halaman detail */
   admin?: { path: string; email: string; password: string };
@@ -34,9 +40,46 @@ export const projectCategories: ProjectCategory[] = [
   "Company Profile",
   "E-Commerce",
   "Dashboard",
+  "Social Media",
 ];
 
 export const projects: Project[] = [
+  {
+    slug: "dish-drink",
+    title: "Dish Drink — Company Profile & Social Media",
+    client: "Dish Drink",
+    categories: ["Company Profile", "E-Commerce", "Social Media", "Web App"],
+    year: 2026,
+    role: "Desainer & Developer",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Motion", "Supabase"],
+    summary:
+      "Website profil untuk brand makanan & minuman, lengkap dengan katalog menu, galeri konten sosial, dan halaman admin.",
+    problem:
+      "Dish Drink hanya mengandalkan media sosial sehingga belum punya kanal resmi: menu, kontak, dan identitas brand tercerai-berai dan sulit ditemukan calon pelanggan.",
+    solution:
+      "Saya membangun website profil yang merangkum brand dalam satu alur: hero yang menggugah selera, katalog menu dengan foto menggoda, sorotan konten sosial, serta panel admin agar tim bisa memperbarui menu dan konten sendiri.",
+    features: [
+      "Halaman profil, menu, dan kontak",
+      "Katalog menu dengan filter kategori",
+      "Galeri sorotan konten media sosial",
+      "Panel admin untuk mengelola menu & konten",
+      "Desain responsif mobile-first",
+    ],
+    results: [
+      { value: "100%", label: "konten dikelola mandiri via admin" },
+      { value: "1,3s", label: "waktu muat halaman menu" },
+      { value: "97", label: "skor Lighthouse mobile" },
+    ],
+    accent: "rose",
+    cover: "/dish-drink-pic.png",
+    coverAlt: "/dish-drink-admin-pic.png",
+    coverFull: true,
+    coverWidth: 1920,
+    coverHeight: 4403,
+    coverAltWidth: 1920,
+    coverAltHeight: 948,
+    link: "https://dish-drink.vercel.app/",
+  },
   {
     slug: "alat-berat",
     title: "Alat Berat — Company Profile & Dashboard",
@@ -67,6 +110,10 @@ export const projects: Project[] = [
     cover: "/alat-berat-pic.png",
     coverAlt: "/alat-berat-admin-pic.png",
     coverFull: true,
+    coverWidth: 1920,
+    coverHeight: 8622,
+    coverAltWidth: 1920,
+    coverAltHeight: 948,
     link: "https://penyewaan-berat.vercel.app/",
     admin: {
       path: "/admin",
@@ -103,6 +150,8 @@ export const projects: Project[] = [
     accent: "sky",
     cover: "/noxen-pic.png",
     coverFull: true,
+    coverWidth: 1920,
+    coverHeight: 6637,
     link: "https://noxen-three.vercel.app",
   },
   {

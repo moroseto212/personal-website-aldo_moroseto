@@ -45,8 +45,8 @@ export default function ProjectVisual({
             <Image
               src={project.cover}
               alt={`Tampilan ${project.title}`}
-              width={1920}
-              height={6637}
+              width={project.coverWidth ?? 1920}
+              height={project.coverHeight ?? 6637}
               sizes="(min-width: 1280px) 1216px, 100vw"
               quality={95}
               className="block h-auto w-full"
@@ -58,8 +58,8 @@ export default function ProjectVisual({
                 <Image
                   src={project.coverAlt}
                   alt={`Halaman admin ${project.title}`}
-                  width={1920}
-                  height={948}
+                  width={project.coverAltWidth ?? 1920}
+                  height={project.coverAltHeight ?? 948}
                   sizes="(min-width: 1280px) 1216px, 100vw"
                   quality={95}
                   className="block h-auto w-full rounded-xl border border-line"
