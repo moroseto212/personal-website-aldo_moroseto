@@ -48,7 +48,7 @@ export const projects: Project[] = [
     slug: "dish-drink",
     title: "Dish Drink — Company Profile & Social Media",
     client: "Dish Drink",
-    categories: ["Company Profile", "E-Commerce", "Social Media", "Web App"],
+    categories: ["Social Media"],
     year: 2026,
     role: "Desainer & Developer",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Motion", "Supabase"],
