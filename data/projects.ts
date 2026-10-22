@@ -4,7 +4,8 @@ export type ProjectCategory =
   | "Company Profile"
   | "E-Commerce"
   | "Dashboard"
-  | "Social Media";
+  | "Social Media"
+  | "Game";
 
 export type Project = {
   slug: string;
@@ -41,9 +42,42 @@ export const projectCategories: ProjectCategory[] = [
   "E-Commerce",
   "Dashboard",
   "Social Media",
+  "Game",
 ];
 
 export const projects: Project[] = [
+  {
+    slug: "flappy-bird",
+    title: "Flappy Bird — Game",
+    client: "Personal Project",
+    categories: ["Game"],
+    year: 2026,
+    role: "Developer",
+    stack: ["HTML", "CSS", "JavaScript"],
+    summary:
+      "Game Flappy Bird sederhana berbasis browser. Terinspirasi dari game klasik dengan mekanik lompat, skor, dan tantangan yang adiktif.",
+    problem:
+      "Mencoba menerapkan logika game sederhana di browser untuk melatih pemahaman JavaScript, event handling, dan animasi.",
+    solution:
+      "Saya membangun versi Flappy Bird berbasis HTML, CSS, dan JavaScript dengan kontrol klik/spacebar, deteksi tabrakan, sistem skor, serta tampilan responsif.",
+    features: [
+      "Kontrol klik atau tekan spasi untuk terbang",
+      "Sistem skor otomatis",
+      "Deteksi tabrakan",
+      "Animasi halus berbasis canvas",
+      "Dapat dimainkan langsung di browser",
+    ],
+    results: [
+      { value: "100%", label: "berjalan di browser" },
+      { value: "Vanilla JS", label: "tanpa framework" },
+      { value: "Playable", label: "langsung bisa dimainkan" },
+    ],
+    accent: "lime",
+    cover: "/flappy-bird-pic.png",
+    coverWidth: 692,
+    coverHeight: 948,
+    link: "https://moroseto212.github.io/Flappy-Bird/",
+  },
   {
     slug: "dish-drink",
     title: "Dish Drink — Company Profile & Social Media",
